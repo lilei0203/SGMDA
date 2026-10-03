@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sgmda-5cv"
+version = "0.1.0"
+description = "Auditable fold-specific SGMDA implementation on the HMDD v3.2 benchmark"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "scipy>=1.10,<2", "scikit-learn>=1.3,<2", "torch>=2.1,<3", "threadpoolctl>=3"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+sgmda = "sgmda.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["sgmda*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
